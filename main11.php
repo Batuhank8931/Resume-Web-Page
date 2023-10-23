@@ -306,9 +306,10 @@ $data = json_decode($jsonString, true);
                             $xi++;
                         }; 
 
-                        $x = 0;
+                        $xs = 1;
                         
-                        while($x < $chartnumber) {
+                        while($xs <= $chartnumber) {
+                            $x=$chartnumber-$xs
 
                             $company = $data['experience']["Company"][$x];
                             $year = $data['experience']["Years"][$x];
@@ -339,7 +340,7 @@ $data = json_decode($jsonString, true);
                                     </div>
                             </div>
                         ');
-                        $x++;
+                        $xs++;
                     };
                     
                 ?>
