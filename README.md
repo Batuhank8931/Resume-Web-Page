@@ -1,5 +1,5 @@
 # Resume-Web-Page
-To see my own page please see; http://batuhankarakaya.kesug.com/main11.php
+To see my own page please see; https://batuhankarakaya.net/
 
 And open main11.php file with cross-platform web server like XAMMP OR WampServer. Otherwise php codes that saves and loads data won't work.
 
