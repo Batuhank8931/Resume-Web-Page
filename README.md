@@ -7,6 +7,6 @@ All the data which seen in the web page comes from "maindata.txt" file. If you c
 
 In this web page only Navbar, sidebar headers and 3 pages are constant. All data is loaded from "maindata.txt".
 
-If you have SQL server you can directly get the data from that server. In order to do that please see the codes inside source.php.
+If you have SQL server you can directly get the data from that server. In order to do that please see the codes inside "source.php".
 
 If you want load the "maindata.txt" data to your SQL server, you can use "datasender.php" in data_sender file.
