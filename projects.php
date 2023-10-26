@@ -1,48 +1,7 @@
-
 <?php
 
-// please fill those information in order to  get the data from SQL
-/*
-
-$servername = "your_mysql_server";
-$username = "your_mysql_username";
-$password = "your_mysql_password";
-$dbname = "your_database_name";
-$tablename = "your_table_name";
-$columnname = "your_table_column_name";
-
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-
-$sql = "SELECT * FROM $tablename";
-$result = $conn->query($sql);
-
-
-while ($row = $result->fetch_assoc()) {
-    $jsonString= $row[$columnname];
-}
-
-$data = json_decode($jsonString, true);
-
-$conn->close();
-
-*/
-
-
-// Please remove below section if you uncommnet upper lines.---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-$file_path = 'maindata.txt';
-
-$jsonString = file_get_contents($file_path);
-
-$data = json_decode($jsonString, true);
-
-// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
+include 'source.php';
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +12,7 @@ $data = json_decode($jsonString, true);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href = "stylepage3.css" rel="stylesheet" />
+    <link href = "stylepage.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -99,13 +58,22 @@ $data = json_decode($jsonString, true);
             <h5 style="color: white;"><?php echo ($data['main']["Personal"][5]);?></h5>
         </div>
 
-        <button type="button " class="m-4 m-sm-5 btn p-0"  data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-collection-fill" viewBox="0 0 16 16">
-                <path d="M0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zM2 3a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11A.5.5 0 0 0 2 3zm2-2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7A.5.5 0 0 0 4 1z"/>
-            </svg>
-
-            <span class="align-middle hellobutton">About Me</span>
-        </button>
+        <div class="row m-4 m-sm-5 p-0">
+            <button type="button " class="btn"  data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-collection-fill" viewBox="0 0 16 16">
+                    <path d="M0 13a1.5 1.5 0 0 0 1.5 1.5h13A1.5 1.5 0 0 0 16 13V6a1.5 1.5 0 0 0-1.5-1.5h-13A1.5 1.5 0 0 0 0 6v7zM2 3a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11A.5.5 0 0 0 2 3zm2-2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7A.5.5 0 0 0 4 1z"/>
+                </svg>
+                <span class="align-middle hellobutton">About Me</span>
+            </button>
+            <button type="button " class="btn" id="downloadButton">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-file-earmark-arrow-down" viewBox="0 0 16 16">
+                    <path d="M8.5 6.5a.5.5 0 0 0-1 0v3.793L6.354 9.146a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 10.293V6.5z"/>
+                    <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
+                </svg>
+                <span class="align-middle hellobutton">CV</span>
+            </button>
+        </div>
+        
     </div>
     <div class="back" style="height: 0.5px;">
         <hr class=" hr m-4 m-sm-5 mt-0 mb-0 mt-sm-0 mb-sm-0 back " />
@@ -599,6 +567,6 @@ $data = json_decode($jsonString, true);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    <script src="scriptpage3.js"></script>
+    <script src="scriptpage.js"></script>
 </body>
 </html>
